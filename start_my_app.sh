@@ -14,6 +14,9 @@ gcloud app create --region=us-east4 --project=$GOOGLE_CLOUD_PROJECT
 gcloud services enable appengine.googleapis.com --project=$GOOGLE_CLOUD_PROJECT
 gcloud alpha datastore databases create --project=$GOOGLE_CLOUD_PROJECT --region=us-east4
 
+# datastore enable
+gcloud services enable datastore.googleapis.com
+
 # api gateway enable
 gcloud services enable apigateway.googleapis.com
 gcloud services enable servicemanagement.googleapis.com
@@ -28,7 +31,7 @@ gcloud services enable cloudbuild.googleapis.com
 # cloud functions enable
 gcloud services enable cloudfunctions.googleapis.com 
 
-gsutil mb gs://etl_app_files -p $GOOGLE_CLOUD_PROJECT
+gsutil mb -p $GOOGLE_CLOUD_PROJECT gs://etl_app_files
 
 cd etl
 gcloud functions deploy gcs_trigger \
